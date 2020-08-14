@@ -7,6 +7,7 @@ if __name__ == "__main__":
 
     try:
         task_number = int(sys.argv[1])
-        check_task(task_number)
+        path_to_repo = sys.argv[2]
+        check_task(task_number, path_to_repo)
     except ValueError:
         exit_script("Need to input number of task")

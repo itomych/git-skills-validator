@@ -1,8 +1,20 @@
 import sys
+import os
+from enum import Enum
 
-if len(sys.argv) < 2:
-	print("Need to input number of task")
+
+class TaskType(Enum):
+	initialSetup = 1
+
+
+def check_task(task_number):
+	if task_number == TaskType.initialSetup.value:
+		if os.path.isdir("./repo"):
+			exit_script("All correct! Nice one!")
+		else:
+			exit_script("Folder is not created")
+
+
+def exit_script(text):
+	print(text)
 	sys.exit()
-
-task_number = sys.argv[1]
-print(task_number)
